@@ -11,7 +11,6 @@ const Tab = createBottomTabNavigator();
 import Home from "./Pages/Home";
 import Favorite from "./Pages/Favorite";
 import ShoppingBasket from './Pages/ShoppingBasket';
-import Models from './Pages/Models';
 import Detail from './Pages/Detail';
 
 function HomeTabs() {
@@ -70,7 +69,7 @@ const Router = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
-                <Stack.Screen name="Detail" component={Detail} options={{ headerShown: true }} />
+                <Stack.Screen name="Detail" component={Detail} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer >
     )

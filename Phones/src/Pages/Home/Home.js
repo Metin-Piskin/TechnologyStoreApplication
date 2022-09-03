@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
-import Config from 'react-native-config';
 import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/Feather';
+import Icoon from 'react-native-vector-icons/Octicons';
 
 import styles from './Home.style';
 import fetchData from '../../Hook';
-import BrandComponent from '../../Component/HomeComponent/BrandComponent';
 import Loading from '../../Component/Loading';
 import Error from '../../Component/Error';
 
@@ -29,7 +29,7 @@ const Home = (props) => {
         setBrand_Name(BrandComponent.brand_name)
     }
 
-    const onSelect = (slug) => {
+    const onSelect = slug => {
         return (
             props.navigation.navigate('Detail', { slug })
         );
@@ -47,35 +47,28 @@ const Home = (props) => {
             return <Error />
         };
 
-
-
         return (
             <>
-                <ScrollView contentContainerStyle={styles.container}>
-
+                <View style={styles.container} >
                     {
                         brand.data.phones.map((com) => {
                             return (
                                 <TouchableOpacity
-                                    key={com.slug}
                                     onPress={() => onSelect(com.slug)}
+                                    key={com.slug}
+                                    style={styles.innercontainer}
                                 >
-                                    <LinearGradient
-                                        colors={['#ff9800', '#ff5722']}
-                                        style={styles.innercontainer}
-                                    >
-                                        <Image
-                                            source={{ uri: com.image }}
-                                            style={styles.image}
-                                        />
-                                        <Text style={styles.name} numberOfLines={2} ellipsizeMode='tail'>{com.phone_name}</Text>
-                                        <Text style={styles.title}>{com.brand}</Text>
-                                    </LinearGradient>
+                                    <Image
+                                        source={{ uri: com.image }}
+                                        style={styles.image}
+                                    />
+                                    <Text style={styles.name} numberOfLines={2} ellipsizeMode='tail'>{com.phone_name}</Text>
+                                    <Text style={styles.title}>{com.brand}</Text>
                                 </TouchableOpacity>
                             );
                         })
                     }
-                </ScrollView>
+                </View>
             </>
         );
     }
@@ -91,24 +84,56 @@ const Home = (props) => {
 
     return (
         <>
-            <ScrollView horizontal={true} style={stylis.container}>
-                {
-                    brand.data.map((BrandComponent) => {
-                        return (
-                            <TouchableOpacity
-                                onPress={() => onPressBrand(BrandComponent)}
-                                style={stylis.container}
-                                key={BrandComponent.brand_id}
-                            >
-                                <Text style={[stylis.btnNormal, brand_name === BrandComponent.brand_name && stylis.btnPress]}>
-                                    {BrandComponent.brand_name}
-                                </Text>
-                            </TouchableOpacity>
-                        );
-                    })
-                }
-            </ScrollView>
-            <Mod />
+            <ScrollView style={{ flex: 1 }}>
+                <>
+                    <Image
+                        source={require('../../Assets/Rectangle.png')}
+                        style={{ width: 393, height: 340, resizeMode: 'contain' }}
+                    />
+                    <View style={styles.profileimagecontainer}>
+                        <Image
+                            source={{ uri: 'https://avatars.githubusercontent.com/u/85956297?v=4' }}
+                            style={styles.profileimage}
+                        />
+                    </View>
+                    <View style={styles.headerimagecontainer}>
+                        <Image
+                            source={require('../../Assets/BannerImage.png')}
+                            style={styles.headerimage}
+                        />
+                    </View>
+                    <View style={styles.bellcontainer}>
+                        <Icon name="bell" size={24} color={"#FFFFFF"} />
+                    </View>
+                    <View style={styles.barscontainer}>
+                        <Icoon name="three-bars" size={24} color={"#FFFFFF"} />
+                    </View>
+                    <View style={styles.textcontainer}>
+                        <Text style={styles.textbir}>The best just got better</Text>
+                        <Text style={styles.textiki}>İPhone 13 series</Text>
+                    </View>
+                </>
+                <>
+                    <ScrollView horizontal={true} contentContainerStyle={stylis.container}>
+                        {
+                            brand.data.map((BrandComponent) => {
+                                return (
+                                    <TouchableOpacity
+                                        onPress={() => onPressBrand(BrandComponent)}
+                                        key={BrandComponent.brand_id}
+                                        style={[stylis.normal, brand_name === BrandComponent.brand_name && stylis.press]}
+                                    >
+                                        <Text style={[stylis.btnNormal, brand_name === BrandComponent.brand_name && stylis.btnPress]}>
+                                            {BrandComponent.brand_name}
+                                        </Text>
+                                    </TouchableOpacity>
+                                );
+                            })
+                        }
+                    </ScrollView>
+                </>
+                <Mod />
+            </ScrollView >
         </>
     );
 }
@@ -117,28 +142,35 @@ export default Home;
 
 const stylis = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
-        height: 30,
-        marginHorizontal: 5,
+        backgroundColor: '#F5F5F5',
     },
-    innercontainer: {
-        flexDirection: "row",
-
-
+    normal: {
+        backgroundColor: '#FFFFFF',
+        marginHorizontal: 10,
+        marginVertical: 10,
+        justifyContent: 'center',
+        borderRadius: 12,
+        paddingHorizontal: 50,
+        paddingVertical: 5,
+    },
+    press: {
+        backgroundColor: '#000',
+        marginHorizontal: 10,
+        marginTop: 10,
+        justifyContent: 'center',
+        borderRadius: 12,
+        paddingHorizontal: 50,
+        paddingVertical: 5,
     },
     btnNormal: {
-        color: '#494F4E',
-        fontSize: 20,
+        color: '#000',
+        fontSize: 18,
         fontStyle: "normal",
-
-        fontWeight: 'bold',
     },
     btnPress: {
-        color: '#ff9800',
+        color: '#FFFFFF',
         fontSize: 20,
         fontStyle: "normal",
-
-        fontWeight: 'bold',
     },
 
 })
