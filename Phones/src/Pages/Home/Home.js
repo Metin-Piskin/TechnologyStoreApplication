@@ -49,7 +49,7 @@ const Home = (props) => {
 
         return (
             <>
-                <View style={styles.container} >
+                <ScrollView horizontal={true} style={styles.container} >
                     {
                         brand.data.phones.map((com) => {
                             return (
@@ -68,7 +68,7 @@ const Home = (props) => {
                             );
                         })
                     }
-                </View>
+                </ScrollView>
             </>
         );
     }
@@ -88,7 +88,7 @@ const Home = (props) => {
                 <>
                     <Image
                         source={require('../../Assets/Rectangle.png')}
-                        style={{ width: 393, height: 340, resizeMode: 'contain' }}
+                        style={{ width: 393, height: 339, resizeMode: 'contain' }}
                     />
                     <View style={styles.profileimagecontainer}>
                         <Image

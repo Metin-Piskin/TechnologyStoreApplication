@@ -50,29 +50,59 @@ export default StyleSheet.create({
     },
     reviewstext: {},
     phonenamecontainer: {
-        flexDirection:"row",
-        justifyContent:"space-between"
+        flexDirection: "row",
+        justifyContent: "space-between"
     },
     phonenametext: {
-        fontWeight:"bold",
-        fontSize:30,
+        fontWeight: "bold",
+        fontSize: 30,
+        color: '#000',
+        marginLeft: 10
+    },
+    brandtext: {
+        fontSize: 20,
+        marginLeft: 10,
+        marginRight:15
+    },
+    addcontainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginHorizontal: 10,
+        marginVertical:10,
+    },
+    addnumcontainer: {
+        flexDirection: "row",
+        borderWidth: 1,
+        alignItems: "center",
+        paddingHorizontal: 15,
+        borderRadius: 20,
+        marginVertical: 8
+    },
+    addnumtext: {
+        marginHorizontal: 6,
+        color: '#000',
+        fontSize: 20
+    },
+    sharecontainer: {
+        backgroundColor: '#E8E8E8',
+        justifyContent: "center",
+        borderRadius: 20,
+        marginVertical: 5,
+        paddingHorizontal: 10
+    },
+    favoricontainer: {
+        backgroundColor: '#E8E8E8',
+        justifyContent: "center",
+        borderRadius: 20,
+        marginVertical: 5,
+        paddingHorizontal: 10
+    },
+    skillcontainer:{
+        marginHorizontal:10,
+        marginVertical:5,
+    },
+    skilltitle:{
         color:'#000',
-        marginLeft:10
+        fontWeight:"bold"
     },
-    money: {
-        fontWeight:"bold",
-        fontSize:18,
-        color:'#000',
-        marginRight:20,
-        marginTop:10
-    },
-    brandtext:{
-        fontSize:20,
-        marginLeft:10,
-    },
-    addcontainer:{
-        flexDirection:"row",
-        justifyContent:"space-between",
-        marginHorizontal:10
-    }
 });

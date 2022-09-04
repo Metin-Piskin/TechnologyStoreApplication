@@ -3,9 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container: {
         backgroundColor: '#F5F5F5',
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "center"
+
     },
     innercontainer: {
         borderRadius: 10,
