@@ -20,6 +20,8 @@ const Detail = (props) => {
     const { slug } = props.route.params;
     const { brand, loading, error } = fetchData("https://api-mobilespecs.azharimm.site/v2/" + slug);
 
+
+
     if (loading) {
         return <Loading />;
     };
@@ -92,38 +94,38 @@ const Detail = (props) => {
                         <Text style={styles.skilltitle}>Release Date: </Text>
                         <Text>{brand.data.release_date}</Text>
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:'center'  }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[6].title}</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[6]?.title}</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[6].specs[1].key}: </Text>
-                        <Text>{brand.data.specifications[6].specs[1].val}</Text>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[6].specs[1]?.key}: </Text>
+                        <Text>{brand.data.specifications[6].specs[1]?.val}</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[6].specs[2].key}: </Text>
-                        <Text style={{ flex: 1 }}>{brand.data.specifications[6].specs[2].val}</Text>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[6].specs[2]?.key}: </Text>
+                        <Text style={{ flex: 1 }}>{brand.data.specifications[6].specs[2]?.val}</Text>
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:'center'  }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[7].title}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[7].specs[1].key}: </Text>
-                        <Text>{brand.data.specifications[7].specs[1].val}</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[7]?.title}</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[7].specs[2].key}: </Text>
-                        <Text style={{ flex: 1 }}>{brand.data.specifications[7].specs[2].val}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent:'center' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[12].title}</Text>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[7].specs[1]?.key}: </Text>
+                        <Text>{brand.data.specifications[7].specs[1]?.val}</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[12].specs[0].key}: </Text>
-                        <Text>{brand.data.specifications[12].specs[0].val}</Text>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[7].specs[2]?.key}: </Text>
+                        <Text style={{ flex: 1 }}>{brand.data.specifications[7].specs[2]?.val}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[12]?.title}</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.skilltitle}>{brand.data.specifications[12].specs[4].key}: </Text>
-                        <Text>{brand.data.specifications[12].specs[4].val}</Text>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[12]?.specs[0]?.key}: </Text>
+                        <Text>{brand.data.specifications[12]?.specs[0]?.val}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.skilltitle}>{brand.data.specifications[12]?.specs[4]?.key}: </Text>
+                        <Text>{brand.data.specifications[12]?.specs[4]?.val}</Text>
                     </View>
                 </View>
             </ScrollView>
@@ -140,7 +142,7 @@ const Detail = (props) => {
                 <TouchableOpacity style={styles.sharecontainer}>
                     <Share size={20} />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.favoricontainer}>
+                <TouchableOpacity style={styles.favoricontainer} onPress={null}>
                     <Heart fill='#000' size={20} />
                 </TouchableOpacity>
                 <AddButton title='Add to Cart' onPress={null} />
